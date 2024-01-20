@@ -13,7 +13,7 @@ type ChainAddresses = {
   v1MixedRouteQuoterAddress?: string
 }
 
-const DEFAULT_NETWORKS = [ChainId.MAINNET, ChainId.GOERLI]
+const DEFAULT_NETWORKS = [ChainId.MAINNET, ChainId.GOERLI, ChainId.BLAST_SEPOLIA]
 
 function constructSameAddressMap(address: string, additionalNetworks: ChainId[] = []): AddressMap {
   return DEFAULT_NETWORKS.concat(additionalNetworks).reduce<AddressMap>((memo, chainId) => {
@@ -32,9 +32,9 @@ export const UNI_ADDRESSES: AddressMap = constructSameAddressMap('0x1f9840a85d5a
 
 export const UNISWAP_NFT_AIRDROP_CLAIM_ADDRESS = '0x8B799381ac40b838BBA4131ffB26197C432AFe78'
 
-export const V2_FACTORY_ADDRESS = '0x5C69bEe701ef814a2B6a3EDD4B1652CB9cc5aA6f'
+export const V2_FACTORY_ADDRESS = '0xe4aa82591AD0E8AbFD15ca2A2ff74439c6052Fbf'
 export const V2_FACTORY_ADDRESSES: AddressMap = constructSameAddressMap(V2_FACTORY_ADDRESS)
-export const V2_ROUTER_ADDRESS = '0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D'
+export const V2_ROUTER_ADDRESS = '0x02F1e7A518e3E286C8E305E39cA7D4f25e0a44Aa'
 export const V2_ROUTER_ADDRESSES: AddressMap = constructSameAddressMap(V2_ROUTER_ADDRESS)
 
 // Networks that share most of the same addresses i.e. Mainnet, Goerli, Optimism, Arbitrum, Polygon
@@ -52,6 +52,16 @@ const MAINNET_ADDRESSES: ChainAddresses = {
 const GOERLI_ADDRESSES: ChainAddresses = {
   ...DEFAULT_ADDRESSES,
   v1MixedRouteQuoterAddress: '0xBa60b6e6fF25488308789E6e0A65D838be34194e'
+}
+
+const BLAST_SEPOLIA_ADDRESSES: ChainAddresses = {
+  v3CoreFactoryAddress: '0x0000000000000000000000000000000000000000',
+  multicallAddress: '0x54c55551fEe014ec7C63F47Cd69f20e47ae178EB',
+  quoterAddress: '0x0000000000000000000000000000000000000000',
+  v3MigratorAddress: '0x0000000000000000000000000000000000000000',
+  nonfungiblePositionManagerAddress: '0x0000000000000000000000000000000000000000',
+  tickLensAddress: '0x0000000000000000000000000000000000000000',
+  v1MixedRouteQuoterAddress: '0x2947892b6bFcd719868f2d7Fe4A3F9A49B0894B9'
 }
 
 const OPTIMISM_ADDRESSES: ChainAddresses = DEFAULT_ADDRESSES
@@ -160,7 +170,8 @@ export const CHAIN_TO_ADDRESSES_MAP: Record<SupportedChainsType, ChainAddresses>
   [ChainId.SEPOLIA]: SEPOLIA_ADDRESSES,
   [ChainId.AVALANCHE]: AVALANCHE_ADDRESSES,
   [ChainId.BASE]: BASE_ADDRESSES,
-  [ChainId.BASE_GOERLI]: BASE_GOERLI_ADDRESSES
+  [ChainId.BASE_GOERLI]: BASE_GOERLI_ADDRESSES,
+  [ChainId.BLAST_SEPOLIA]: BLAST_SEPOLIA_ADDRESSES
 }
 
 /* V3 Contract Addresses */

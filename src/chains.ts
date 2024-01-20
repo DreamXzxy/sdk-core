@@ -15,13 +15,15 @@ export enum ChainId {
   BNB = 56,
   AVALANCHE = 43114,
   BASE_GOERLI = 84531,
-  BASE = 8453
+  BASE = 8453,
+  BLAST_SEPOLIA = 168587773,
 }
 
 export const SUPPORTED_CHAINS = [
   ChainId.MAINNET,
   ChainId.OPTIMISM,
   ChainId.OPTIMISM_GOERLI,
+  ChainId.BLAST_SEPOLIA,
   ChainId.ARBITRUM_ONE,
   ChainId.ARBITRUM_GOERLI,
   ChainId.POLYGON,
